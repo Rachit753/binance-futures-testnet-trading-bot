@@ -16,3 +16,14 @@
 2026-03-13 22:49:17,334 - INFO - Binance client initialized successfully
 2026-03-13 22:49:17,335 - INFO - Sending LIMIT order | BTCUSDT SELL qty=0.002 price=90000.0
 2026-03-13 22:49:18,248 - INFO - Order response: {'orderId': 12792067706, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJdbf7b2fee32f1d2b87bc21', 'price': '90000.00', 'avgPrice': '0.00', 'origQty': '0.002', 'executedQty': '0.000', 'cumQty': '0.000', 'cumQuote': '0.00000', 'timeInForce': 'GTC', 'type': 'LIMIT', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'LIMIT', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1773422358063}
+2026-03-13 23:16:14,960 - INFO - Binance client initialized successfully
+2026-03-13 23:16:14,960 - INFO - Sending STOP_LIMIT order | BTCUSDT BUY qty=0.002 price=60000.0 stop=61000.0
+2026-03-13 23:16:15,760 - ERROR - Stop-limit order failed: APIError(code=-2021): Order would immediately trigger.
+2026-03-13 23:16:15,761 - ERROR - APIError(code=-2021): Order would immediately trigger.
+2026-03-13 23:17:42,827 - INFO - Binance client initialized successfully
+2026-03-13 23:17:42,827 - INFO - Sending STOP_LIMIT order | BTCUSDT BUY qty=0.002 price=65000.0 stop=66000.0
+2026-03-13 23:17:43,421 - ERROR - Stop-limit order failed: APIError(code=-2021): Order would immediately trigger.
+2026-03-13 23:17:43,421 - ERROR - APIError(code=-2021): Order would immediately trigger.
+2026-03-13 23:18:47,941 - INFO - Binance client initialized successfully
+2026-03-13 23:18:47,941 - INFO - Sending STOP_LIMIT order | BTCUSDT BUY qty=0.002 price=120000.0 stop=130000.0
+2026-03-13 23:18:48,400 - INFO - Order response: {'algoId': 1000000024643609, 'clientAlgoId': 'x-Cb7ytekJab53553f8406975086f659', 'algoType': 'CONDITIONAL', 'orderType': 'STOP', 'symbol': 'BTCUSDT', 'side': 'BUY', 'positionSide': 'BOTH', 'timeInForce': 'GTC', 'quantity': '0.002', 'algoStatus': 'NEW', 'triggerPrice': '130000.00', 'price': '120000.00', 'icebergQuantity': None, 'selfTradePreventionMode': 'EXPIRE_MAKER', 'workingType': 'CONTRACT_PRICE', 'priceMatch': 'NONE', 'closePosition': False, 'priceProtect': False, 'reduceOnly': False, 'createTime': 1773424128295, 'updateTime': 1773424128296, 'triggerTime': 0, 'goodTillDate': 0}

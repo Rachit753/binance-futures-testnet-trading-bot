@@ -25,8 +25,8 @@ def validate_side(side):
 def validate_order_type(order_type):
     order_type = order_type.upper()
 
-    if order_type not in ["MARKET", "LIMIT"]:
-        raise ValueError("Order type must be MARKET or LIMIT")
+    if order_type not in ["MARKET", "LIMIT", "STOP_LIMIT"]:
+        raise ValueError("Order type must be MARKET, LIMIT, or STOP_LIMIT")
 
     return order_type
 
@@ -45,9 +45,9 @@ def validate_quantity(quantity):
 
 
 def validate_price(price, order_type):
-    if order_type == "LIMIT":
+    if order_type in ["LIMIT", "STOP_LIMIT"]:
         if price is None:
-            raise ValueError("Price is required for LIMIT orders")
+            raise ValueError("Price is required for LIMIT or STOP_LIMIT orders")
 
         try:
             p = float(price)
@@ -59,5 +59,24 @@ def validate_price(price, order_type):
 
         except ValueError:
             raise ValueError("Price must be a valid number")
+
+    return None
+
+
+def validate_stop_price(stop_price, order_type):
+    if order_type == "STOP_LIMIT":
+        if stop_price is None:
+            raise ValueError("Stop price is required for STOP_LIMIT orders")
+
+        try:
+            sp = float(stop_price)
+
+            if sp <= 0:
+                raise ValueError("Stop price must be greater than 0")
+
+            return sp
+
+        except ValueError:
+            raise ValueError("Stop price must be a valid number")
 
     return None

@@ -30,7 +30,9 @@ def place_limit_order(symbol, side, quantity, price):
     try:
         client = create_client()
 
-        logger.info(f"Sending LIMIT order | {symbol} {side} qty={quantity} price={price}")
+        logger.info(
+            f"Sending LIMIT order | {symbol} {side} qty={quantity} price={price}"
+        )
 
         order = client.futures_create_order(
             symbol=symbol,
@@ -47,4 +49,31 @@ def place_limit_order(symbol, side, quantity, price):
 
     except Exception as e:
         logger.error(f"Limit order failed: {str(e)}")
+        raise
+
+
+def place_stop_limit_order(symbol, side, quantity, price, stop_price):
+    try:
+        client = create_client()
+
+        logger.info(
+            f"Sending STOP_LIMIT order | {symbol} {side} qty={quantity} price={price} stop={stop_price}"
+        )
+
+        order = client.futures_create_order(
+            symbol=symbol,
+            side=side,
+            type="STOP",
+            quantity=quantity,
+            price=price,
+            stopPrice=stop_price,
+            timeInForce="GTC"
+        )
+
+        logger.info(f"Order response: {order}")
+
+        return order
+
+    except Exception as e:
+        logger.error(f"Stop-limit order failed: {str(e)}")
         raise

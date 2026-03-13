@@ -1,14 +1,14 @@
 # Binance Futures Testnet Trading Bot
 
-A lightweight Python CLI trading bot for placing MARKET and LIMIT orders on the Binance Futures Testnet.
+A lightweight Python CLI trading bot for placing MARKET, LIMIT, and STOP-LIMIT orders on the Binance Futures Testnet.
 
 ---
 
 ## Overview
 
-This project is a command-line trading bot built in Python that interacts with the **Binance Futures Testnet (USDT-M)**. It allows users to place basic trading orders directly from the terminal while demonstrating how to structure a small but maintainable Python project.
+This project is a command-line trading bot built in Python that interacts with the **Binance Futures Testnet (USDT-M)**. It allows users to place trading orders directly from the terminal while demonstrating how to structure a small but maintainable Python project.
 
-The project focuses on clean separation of responsibilities, input validation, and logging so that the application can be easily extended in the future.
+The application emphasizes **clean code organization, input validation, logging, and error handling**, making it easy to extend with additional trading functionality in the future.
 
 ---
 
@@ -16,11 +16,14 @@ The project focuses on clean separation of responsibilities, input validation, a
 
 * Place **MARKET orders**
 * Place **LIMIT orders**
+* Place **STOP-LIMIT orders (bonus feature)**
 * Supports both **BUY** and **SELL** sides
 * Command-line interface using `argparse`
 * Input validation for symbol, order type, quantity, and price
-* Logging for API requests, responses, and errors
-* Modular and reusable project structure
+* Structured logging for API requests, responses, and errors
+* Modular and reusable project architecture
+
+The **STOP-LIMIT order type** is implemented as a **bonus feature beyond the core task requirements**.
 
 ---
 
@@ -30,13 +33,16 @@ The project focuses on clean separation of responsibilities, input validation, a
 trading_bot/
 │
 ├── bot/
-│   ├── client.py           # Binance client setup
+│   ├── client.py           # Binance client configuration
 │   ├── orders.py           # Order execution logic
-│   ├── validators.py       # Input validation
+│   ├── validators.py       # CLI input validation
 │   └── logging_config.py   # Logging configuration
 │
 ├── logs/
 │   └── trading_bot.log     # Application logs
+│
+├── sample_logs/
+│   └── trading_bot.log     # Example logs for submission
 │
 ├── cli.py                  # CLI entry point
 ├── requirements.txt
@@ -92,6 +98,8 @@ You can generate API keys from:
 https://testnet.binancefuture.com
 ```
 
+These keys are used for **Binance Futures Testnet**, so no real funds are involved.
+
 ---
 
 ## Usage
@@ -107,6 +115,17 @@ python cli.py --symbol BTCUSDT --side BUY --type MARKET --qty 0.002
 ```
 python cli.py --symbol BTCUSDT --side SELL --type LIMIT --qty 0.002 --price 90000
 ```
+
+### STOP-LIMIT Order (Bonus)
+
+```
+python cli.py --symbol BTCUSDT --side BUY --type STOP_LIMIT --qty 0.002 --price 120000 --stop 130000
+```
+
+Explanation:
+
+* `stop` → trigger price
+* `price` → limit price placed after the trigger
 
 ---
 
@@ -147,7 +166,15 @@ INFO Sending MARKET order | BTCUSDT BUY qty=0.002
 INFO Order response: {...}
 ```
 
-Logging helps track order activity and makes debugging easier when interacting with external APIs.
+Logs help track order activity and simplify debugging when interacting with external APIs.
+
+A **sample log file** is included in:
+
+```
+sample_logs/trading_bot.log
+```
+
+This demonstrates successful execution of MARKET and LIMIT orders as required by the assignment.
 
 ---
 
@@ -170,10 +197,12 @@ pip install -r requirements.txt
 
 * Binance Futures Testnet requires a **minimum notional value of 100 USDT** per order.
 * LIMIT orders may remain in `NEW` status if the price is far from the current market price.
-* The project runs on the **Binance Testnet environment**, meaning no real funds are used.
+* STOP-LIMIT orders require a valid trigger (`stop`) and limit (`price`) configuration.
+* The project runs on the **Binance Futures Testnet environment**, meaning no real funds are used.
 
 ---
 
 ## Disclaimer
 
-This project is for **learning and demonstration purposes**. It should not be used for real trading without implementing proper strategy and risk management.
+This project is created for **learning and demonstration purposes only**.
+It should not be used for real trading without implementing proper trading strategies, risk management, and production-grade safeguards.
