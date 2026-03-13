@@ -1,0 +1,18 @@
+2026-03-13 22:31:11,249 - INFO - Binance client initialized successfully
+2026-03-13 22:31:11,250 - INFO - Sending MARKET order | BTCUSDT BUY qty=0.001
+2026-03-13 22:31:12,479 - ERROR - Market order failed: APIError(code=-2015): Invalid API-key, IP, or permissions for action
+2026-03-13 22:31:12,480 - ERROR - APIError(code=-2015): Invalid API-key, IP, or permissions for action
+2026-03-13 22:40:41,351 - INFO - Binance client initialized successfully
+2026-03-13 22:40:41,351 - INFO - Sending MARKET order | BTCUSDT BUY qty=0.001
+2026-03-13 22:40:42,697 - ERROR - Market order failed: APIError(code=-1021): Timestamp for this request is outside of the recvWindow.
+2026-03-13 22:40:42,698 - ERROR - APIError(code=-1021): Timestamp for this request is outside of the recvWindow.
+2026-03-13 22:44:08,166 - INFO - Binance client initialized successfully
+2026-03-13 22:44:08,166 - INFO - Sending MARKET order | BTCUSDT BUY qty=0.001
+2026-03-13 22:44:08,712 - ERROR - Market order failed: APIError(code=-4164): Order's notional must be no smaller than 100 (unless you choose reduce only).
+2026-03-13 22:44:08,712 - ERROR - APIError(code=-4164): Order's notional must be no smaller than 100 (unless you choose reduce only).
+2026-03-13 22:45:46,315 - INFO - Binance client initialized successfully
+2026-03-13 22:45:46,315 - INFO - Sending MARKET order | BTCUSDT BUY qty=0.002
+2026-03-13 22:45:47,043 - INFO - Order response: {'orderId': 12792010878, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJ2d4edee7393d07714a7f3', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.002', 'executedQty': '0.000', 'cumQty': '0.000', 'cumQuote': '0.00000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1773422146852}
+2026-03-13 22:49:17,334 - INFO - Binance client initialized successfully
+2026-03-13 22:49:17,335 - INFO - Sending LIMIT order | BTCUSDT SELL qty=0.002 price=90000.0
+2026-03-13 22:49:18,248 - INFO - Order response: {'orderId': 12792067706, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJdbf7b2fee32f1d2b87bc21', 'price': '90000.00', 'avgPrice': '0.00', 'origQty': '0.002', 'executedQty': '0.000', 'cumQty': '0.000', 'cumQuote': '0.00000', 'timeInForce': 'GTC', 'type': 'LIMIT', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'LIMIT', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1773422358063}
